@@ -9,23 +9,33 @@
                             <div class="col-md-6 col-sm-6">
                                 <div class="left-panel border right">
                                     <h3 class="mrg-btm-30 mrg-top-15">Sign In</h3>
-                                    <form>
+                                    <form id="formLogin" role="form" method="POST" action="{{ route('login') }}">
                                     {{ csrf_field() }}
                                         <div class="form-wrapper">
                                             <label><b>User Name</b></label>
-                                            <input type="text" class="form-control width-90" placeholder="Username">
+                                            <input id="email" type="email" class="form-control width-90" value="{{ old('email') }}" placeholder="Email">
                                         </div>
                                         <div class="form-wrapper">
                                             <label><b>Password</b></label>
-                                            <input type="password" class="form-control width-90" placeholder="Password">
+                                            <input id="password" type="password" class="form-control width-90" placeholder="Password">
                                         </div>
                                         <div class="checkbox">
                                             <input type="checkbox" name="remember" id="check1" {{ old('remember') ? 'checked' : '' }}>
                                             <!-- <input type="checkbox" name="group1" id="check1"> -->
                                             <label for="check1"><span class="text-grey">Remember Password</span></label>
                                         </div>
-                                        <input class="btn btn-md btn-theme mrg-vertical-20" type="submit" value="Sign in">
+                                        <!-- <input class="btn btn-md btn-theme mrg-vertical-20" type="submit" value="Sign in"> -->
+                                        <button class="btn btn-md btn-theme mrg-vertical-20"" type="submit">Sign In</button>
+                                        <!-- onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();"> -->
                                     </form>
+                                        <div class="row mrg-top-10">
+                                                        <div class="col-md-12 pdd-horizon-5">
+                                                            <div class="form-wrapper">  
+                                                                <span class="mrg-top-10 text-gray">Not a member yet? <a class="theme-color" href="{{route('register')}}">Sign Up</a></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -246,6 +256,7 @@
          <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>-->
     <script type="text/javascript" src="{{ asset('js/email.js')}}"></script>
     <script type="text/javascript" src="{{ asset('js/main.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/ajax.js')}}"></script>
     
     <script type="text/javascript" src="{{ asset('js/style-switcher.js')}}"></script>
 </body>

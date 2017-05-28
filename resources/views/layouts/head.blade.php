@@ -32,7 +32,6 @@
         
         <!-- Your CSS -->
     <link rel="stylesheet" href="{{ asset('css/custom.css')}}" />
-    <title>Band camp</title>
 </head>
 <body>
 
@@ -74,8 +73,10 @@
                            <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <!-- cart ir login-->
+                        @if (Route::has('login'))
                         <div class="nav-tools">
                             <ul class="nav navbar-nav">
+                                @if (Auth::check())
                                 <li class="nav-item dropdown">
                                     <a class="dropdown-toggle" href="#"><i class="ei ei-shopping-cart"></i> 5</a>
                                     <ul class="cart-menu dropdown-menu">
@@ -110,107 +111,48 @@
                                         </li>
                                     </ul>
                                 </li>
-
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-toggle" href="javascript:void(0);">{{ Auth::user()->name }}<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                            Logout</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                                @else
                                 <li class="nav-item">
                                     <button class="login-btn" data-toggle="modal" data-target="#login">Login</button>
                                 </li>
+                                @endif
                             </ul>
+                            @endif
                             
                         </div>
                         <!-- Logo -->
                         <div class="nav-logo">
-                            <a class="logo" href="index.html"><img class="logo-light" src="{{asset('images/logo/logo-1.png')}}" alt="Eastern"></a>
-                            <a class="logo" href="index.html"><img class="logo-dark" src="{{asset('images/logo/logo-2.png')}}" alt="Eastern"></a>
+                            <a class="logo" href="{{route('home')}}"><img class="logo-light" src="{{asset('images/logo/logo-1.png')}}" alt="Eastern"></a>
+                            <a class="logo" href="{{route('home')}}"><img class="logo-dark" src="{{asset('images/logo/logo-2.png')}}" alt="Eastern"></a>
                         </div>  
 
                     </div>
                     <div class="collapse navbar-collapse nav-collapse">
                         <ul class="nav navbar-nav" >
                             <li class="nav-item dropdown">
-                                <a class="dropdown-toggle" href="javascript:void(0);">Home <span class="caret"></span></a>
+                                <a class="dropdown-toggle" href="javascript:void(0);">News</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="dropdown-toggle" href="javascript:void(0);">Features <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li class="sub-menu"><a href="javascript:void(0);">Footer <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="footer1.html">Footer 1</a></li>
-                                            <li><a href="footer-reveal.html">Footer Reveal</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="sub-menu"><a href="javascript:void(0);">Page Tittle <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li class="sub-menu"><a href="javascript:void(0);">Size <span class="caret"></span></a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="page-tittle-sm.html">Page Tittle Small</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="sub-menu"><a href="javascript:void(0);">Alignment <span class="caret"></span></a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="page-tittle-left.html">Align Left</a></li>
-                                                    <li><a href="page-tittle-right.html">Align Right</a></li>
-                                                    <li><a href="page-tittle-center.html">Align Center</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="page-tittle-bg.html">Stactic Background</a></li>
-                                            <li><a href="page-tittle-parallax.html">Parallax</a></li>
-                                            <li><a href="page-tittle-kenburn.html">Kenburn</a></li>
-                                            <li><a href="page-tittle-video.html">Video</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="sub-menu"><a href="javascript:void(0);">Page loader <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="loader1.html">Page Loader 1</a></li>
-                                            <li><a href="loader2.html">Page Loader 2</a></li>
-                                            <li><a href="loader3.html">Page Loader 3</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                <a class="dropdown-toggle" href="javascript:void(0);">Tour Dates</a>
+
                             </li>
                             <li class="nav-item dropdown mega-menu">
-                                <a class="dropdown-toggle" href="javascript:void(0);">Pages <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li class="mega-menu-content">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <ul>
-                                                    <li><a href="about-1.html">About us 1</a></li>
-                                                    <li><a href="about-2.html">About us 2</a></li>
-                                                    <li><a href="about-3.html">About us 3</a></li>
-                                                    <li><a href="about-me.html">About Me</a></li>
-                                                    <li><a href="404.html">404 Page</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <ul>
-                                                    <li><a href="services-1.html">Services 1</a></li>
-                                                    <li><a href="services-2.html">Services 2</a></li>
-                                                    <li><a href="services-3.html">Services 3</a></li>
-                                                    <li><a href="contact-1.html">Contact Us 1</a></li>
-                                                    <li><a href="contact-2.html">Contact Us 2</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <ul>
-                                                    <li><a href="faq.html">FAQ</a></li>
-                                                    <li><a href="login.html">Login</a></li>
-                                                    <li><a href="login-2.html">Login 2</a></li>
-                                                    <li><a href="register.html">Register</a></li>
-                                                    <li><a href="account.html">My Account</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <ul>
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="categories.html">Categories</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="product-single.html">Prodct Single</a></li>
-                                                    <li><a href="coming-soon.html">Coming Soon</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <a class="dropdown-toggle" href="javascript:void(0);">Pages</span></a>
+                                
                             </li>
                             <li class="nav-item dropdown mega-menu">
                                 <a class="dropdown-toggle" href="javascript:void(0);">Elements <span class="caret"></span></a>
