@@ -16,7 +16,37 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+// Home page
 Route::get('/home', 'HomeController@index')->name('home');
 
+// News page
+Route::get('/news', 'NewsController@index')->name('news.main');
+
+// Tour Dates page
+Route::get('/tour', 'TourDatesController@index')->name('tourDates.main');
+
+// Music page
+Route::get('/music', 'MusicController@index')->name('music.main');
+
+// Music page
+Route::get('/band', 'BandController@index')->name('band.main');
+
+// Merch Store page
+Route::get('/store', 'MerchStoreController@index')->name('store.main');
+
+// Cart page
+Route::get('/cart', 'CartController@index')->name('cart.main');
+
+//Admin panel page
+Route::get('/admin', 'AdminController@index')->name('admin.main');
+
+//Admin panel page
+Route::get('/profile', 'UserController@index')->name('user.main');
+
+// Dev test blade
 Route::get('/test', 'Demo@test')->name('test');
+
+// Social login
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name("fb.auth");
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+

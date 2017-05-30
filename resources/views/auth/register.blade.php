@@ -5,7 +5,7 @@
             <div class="fs-hero hero-img" style="background-image:url({{ asset('images/bg-11.jpg')}})">
                 <div class="hero-caption text-white center-left">
                     <h3 class="font-weight-light">Adventure Mind</h3>
-                    <h1 class="ls-2">Start Your Journey</h1>
+                    <h1 class="ls-2">Register page</h1>
                     <p class="mrg-top-20">Lorem Ipsum is simply dummy text of the printing and typesetting industry. printer took a galley of type and scrambled it to make a type .</p>
                     <div class="mrg-top-20">
                         <a href class="btn btn-white-inverse btn-md">Read More</a>
@@ -98,7 +98,7 @@
                                     <div class="background-holder theme-overlay has-content" style="background-image:url(assets/images/bg-18.jpg)">
                                         <div class="content pdd-horizon-50">
                                             <img class="img-responsive mrg-btm-20" src="assets/images/logo/logo-1.png" alt="">
-                                            <p class="text-white">Create a Eastern account or sign in with social media below:</p>
+                                            <p class="text-white">frfdsghbgdghbd:</p>
                                             <ul class="social-btn mrg-top-30">
                                                 <li><a class="btn icon-btn-md btn-white-inverse hover-facebook border-radius-round" href="javascript:void(0);"><i class="ei ei-facebook"></i></a></li>
                                                 <li><a class="btn icon-btn-md btn-white-inverse hover-twitter border-radius-round" href="javascript:void(0);"><i class="ei ei-twitter"></i></a></li>

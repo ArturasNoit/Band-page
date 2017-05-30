@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css')}}" />
 </head>
 <body>
-
+    @if (Auth::check())
     <!-- Style Switcher plugin -->
     <div class="style-switcher">
         <a class="style-switcher-btn hidden-xs" href="javascript:void(0);">
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-
+    @endif
         <div class="wrapper">
         <!-- Header Start -->
         <header id="menu" class="header header-transparent header-sticky">
@@ -78,7 +78,7 @@
                             <ul class="nav navbar-nav">
                                 @if (Auth::check())
                                 <li class="nav-item dropdown">
-                                    <a class="dropdown-toggle" href="#"><i class="ei ei-shopping-cart"></i> 5</a>
+                                    <a class="dropdown-toggle" href="javascript:void(0);"><i class="ei ei-shopping-cart"></i> 5</a>
                                     <ul class="cart-menu dropdown-menu">
                                     <!-- One product to show -->
                                         <li class="cart-menu-item">
@@ -107,13 +107,15 @@
                                             <span class="amount">$800</span>
                                         </li>
                                         <li class="cart-menu-bottom">
-                                            <a class="btn check-out" href="#"><i class="ei ei-shopping-cart-dash pdd-horizon-5"></i> View Cart</a>
+                                            <a class="btn check-out" href="{{route('cart.main')}}"><i class="ei ei-shopping-cart-dash pdd-horizon-5"></i> View Cart</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="dropdown-toggle" href="javascript:void(0);">{{ Auth::user()->name }}<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
+                                        <li><a href="{{route('admin.main')}}">Admin panel</a>
+                                        <li><a href="{{route('user.main')}}">My profile</a>
                                         <li>
                                             <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -144,148 +146,32 @@
                     <div class="collapse navbar-collapse nav-collapse">
                         <ul class="nav navbar-nav" >
                             <li class="nav-item dropdown">
-                                <a class="dropdown-toggle" href="javascript:void(0);">News</a>
+                                <a class="dropdown-toggle" href="{{route('news.main')}}">News</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="dropdown-toggle" href="javascript:void(0);">Tour Dates</a>
+                                <a class="dropdown-toggle" href="{{route('tourDates.main')}}">Tour Dates</a>
 
                             </li>
                             <li class="nav-item dropdown mega-menu">
-                                <a class="dropdown-toggle" href="javascript:void(0);">Pages</span></a>
+                                <a class="dropdown-toggle" href="{{route('music.main')}}">Music</a>
                                 
                             </li>
                             <li class="nav-item dropdown mega-menu">
-                                <a class="dropdown-toggle" href="javascript:void(0);">Elements <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li class="mega-menu-content">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <ul>
-                                                    <li><a href="accordion.html">Accordion</a></li>
-                                                    <li><a href="buttons.html">Buttons</a></li>
-                                                    <li><a href="cta.html">Call To Action</a></li>
-                                                    <li><a href="columns.html">Columns</a></li>
-                                                    <li><a href="content-blocks.html">Content Blocks</a></li>
-                                                    
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <ul>
-                                                    <li><a href="counters.html">Counters</a></li>
-                                                    <li><a href="features-box.html">Features Box</a></li>
-                                                    <li><a href="forms.html">Forms</a></li>
-                                                    <li><a href="icons.html">Icons</a></li>
-                                                    <li><a href="media.html">Media</a></li>
-                                                    
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <ul>
-                                                    <li><a href="message-box.html">Message Box</a></li>
-                                                    <li><a href="modal.html">Modal</a></li>
-                                                    <li><a href="pricing-table.html">Pricing Table</a></li>
-                                                    <li><a href="progress-bar.html">Prgress Bar</a></li>
-                                                    <li><a href="rollover.html">Rollover</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <ul>
-                                                    <li><a href="tabs.html">Tabs</a></li>
-                                                    <li><a href="tables.html">Tables</a></li>
-                                                    <li><a href="team.html">Team</a></li>
-                                                    <li><a href="testimonial.html">Testimonial</a></li>
-                                                    <li><a href="typography.html">Typography</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <a class="dropdown-toggle" href="{{route('band.main')}}">Band</a>
+                                
                             </li>
                             <li class="nav-item dropdown mega-menu">
-                                <a class="dropdown-toggle" href="javascript:void(0);">Portfolio <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li class="mega-menu-content">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <ul>
-                                                    <li class="menu-tittle">Grid</li>
-                                                    <li><a href="portfolio-grid-2-col.html">2 Columns</a></li>
-                                                    <li><a href="portfolio-grid-3-col.html">3 Columns</a></li>
-                                                    <li><a href="portfolio-grid-4-col.html">4 Columns</a></li>
-                                                    <li><a href="portfolio-grid-5-col.html">5 Columns</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <ul>
-                                                    <li class="menu-tittle">Masonry</li>
-                                                    <li><a href="portfolio-masonry-2-col.html">2 Columns</a></li>
-                                                    <li><a href="portfolio-masonry-3-col.html">3 Columns</a></li>
-                                                    <li><a href="portfolio-masonry-4-col.html">4 Columns</a></li>
-                                                    <li><a href="portfolio-masonry-5-col.html">5 Columns</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <ul>
-                                                    <li class="menu-tittle">Single</li>
-                                                    <li><a href="portfolio-single-1.html">Layout 1</a></li>
-                                                    <li><a href="portfolio-single-2.html">Layout 2</a></li>
-                                                    <li><a href="portfolio-single-3.html">Layout 3</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <a class="dropdown-toggle" href="javascript:void(0);">Band club</a>
+                                
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="dropdown-toggle" href="javascript:void(0);">Blog <span class="caret"></span></a>
+                                <a class="dropdown-toggle" href="{{route('store.main')}}">Merch Store <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li class="sub-menu left"><a href="javascript:void(0);">Blog Classic</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-classic-left-sidebar.html">Left Sidebar</a></li>
-                                            <li><a href="blog-classic-right-sidebar.html">Right Sidebar</a></li>
-                                            <li><a href="blog-classic-full-width.html">Full Width</a></li>
-                                        </ul>
+                                    <li ><a href="javascript:void(0);">Music</a>
                                     </li>
-                                    <li class="sub-menu left"><a href="javascript:void(0);">Blog Grid <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-grid-2-col.html">2 columns</a></li>
-                                            <li><a href="blog-grid-3-col.html">3 columns</a></li>
-                                            <li><a href="blog-grid-4-col.html">4 columns</a></li>
-                                            <li><a href="blog-grid-masonry.html">Masonry</a></li>
-                                            <li><a href="blog-grid-left-sidebar.html">Left Sidebar</a></li>
-                                            <li><a href="blog-grid-right-sidebar.html">Right Sidebar</a></li>
-                                        </ul>
+                                    <li><a href="javascript:void(0);">Apparel</a>
                                     </li>
-                                    <li class="sub-menu left"><a href="javascript:void(0);">Blog Card <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-card-2-col.html">2 columns</a></li>
-                                            <li><a href="blog-card-3-col.html">3 columns</a></li>
-                                            <li><a href="blog-card-4-col.html">4 columns</a></li>
-                                            <li><a href="blog-card-masonry.html">Masonry</a></li>
-                                            <li><a href="blog-card-left-sidebar.html">Left Sidebar</a></li>
-                                            <li><a href="blog-card-right-sidebar.html">Right Sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="sub-menu left"><a href="javascript:void(0);">Blog List <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-list-left-sidebar.html">Left Sidebar</a></li>
-                                            <li><a href="blog-list-right-sidebar.html">Right Sidebar</a></li>
-                                            <li><a href="blog-list-full-width.html">Full Width</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="sub-menu left"><a href="javascript:void(0);">Blog Default<span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-default-left-sidebar.html">Left Sidebar</a></li>
-                                            <li><a href="blog-default-right-sidebar.html">Right Sidebar</a></li>
-                                            <li><a href="blog-default-full-width.html">Full Width</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="sub-menu left"><a href="javascript:void(0);">Single Post <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="single-post-left-sidebar.html">Left Sidebar</a></li>
-                                            <li><a href="single-post-right-sidebar.html">Right Sidebar</a></li>
-                                            <li><a href="single-post-full-width.html">Full Width</a></li>
-                                        </ul>
+                                    <li><a href="javascript:void(0);">Accessories</a>
                                     </li>
                                 </ul>
                             </li>

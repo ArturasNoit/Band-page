@@ -11,18 +11,29 @@
                                     <h3 class="mrg-btm-30 mrg-top-15">Sign In</h3>
                                     <form id="formLogin" role="form" method="POST" action="{{ route('login') }}">
                                     {{ csrf_field() }}
-                                        <div class="form-wrapper">
-                                            <label><b>User Name</b></label>
-                                            <input id="email" type="email" class="form-control width-90" value="{{ old('email') }}" placeholder="Email">
+                                        <div class="form-wrapper {{ $errors->has('email') ? ' has-error' : '' }}">
+                                            <label for="email"><b>E-mail</b></label>
+                                            <input id="email" type="email" class="form-control width-90" name="email" value="{{ old('email') }}" placeholder="Email">
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
-                                        <div class="form-wrapper">
-                                            <label><b>Password</b></label>
-                                            <input id="password" type="password" class="form-control width-90" placeholder="Password">
+
+                                        <div class="form-wrapper {{ $errors->has('password') ? ' has-error' : '' }}">
+                                            <label for="password"><b>Password</b></label>
+                                            <input id="password" type="password" class="form-control width-90" name="password" placeholder="Password">
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                         <div class="checkbox">
                                             <input type="checkbox" name="remember" id="check1" {{ old('remember') ? 'checked' : '' }}>
-                                            <!-- <input type="checkbox" name="group1" id="check1"> -->
                                             <label for="check1"><span class="text-grey">Remember Password</span></label>
+                                            <!-- <input type="checkbox" name="group1" id="check1"> -->
                                         </div>
                                         <!-- <input class="btn btn-md btn-theme mrg-vertical-20" type="submit" value="Sign in"> -->
                                         <button class="btn btn-md btn-theme mrg-vertical-20"" type="submit">Sign In</button>
@@ -43,7 +54,7 @@
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-1">
                                             <h3 class="mrg-btm-30 mrg-top-70">Connect With</h3>
-                                            <a class="card no-mrg-btm padding-15 display-block text-center text-facebook hover-facebook" href="#">  
+                                            <a class="card no-mrg-btm padding-15 display-block text-center text-facebook hover-facebook" href="{{ route('fb.auth', 'facebook') }}">  
                                                 <i class="ei ei-facebook"></i> <b class="font-secondary ls-1">FACEBOOK</b>
                                             </a>
                                             <div class="mrg-vertical-20">
@@ -72,32 +83,31 @@
         <div class="footer-reveal-wrapper">
             <div class="container">
                 <div class="row mrg-btm-30">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="widget widget-about">
-                            <img class="img-responsive" src="assets/images/logo/logo-1.png" alt="">
+                            <h1 class="widget-tittle">Subscribe</h1>
                             <p class="mrg-top-30">Lorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                            <div class="row mrg-top-20">
+                            <div class="col-md-10">
+                                <div class="icon-input">           
+                                    <input type="email" class="form-control width-80" placeholder="">
+                                    <i class="ei ei-email"></i>
+                                    <a href="javascript:void(0);" class="btn btn-theme btn-md inline-submit" >Subcribe</a>
+                                </div>
+                            </div>
+                        </div>
                         </div><!-- /widget-about -->
                     </div>
-                    <div class="col-md-4 col-md-offset-1">
+                    <div class="col-md-3 col-md-offset-1">
                         <div class="widget widget-link">
-                            <h3 class="widget-tittle">Useful Link</h3>
+                            <h3 class="widget-tittle">Social Media</h3>
                             <div class="row mrg-btm-30">
-                                <div class="col-md-6">
-                                    <ul class="link">
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Career</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <ul class="link">
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Career</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </div>
+                                <ul class="social-btn mrg-top-5">
+                                    <li><a href="#" class="btn btn-gray icon-btn-sm icon-btn-round"><i class="ei ei-facebook"></i></a></li>
+                                    <li><a href="#" class="btn btn-gray icon-btn-sm icon-btn-round"><i class="ei ei-twitter"></i></a></li>
+                                    <li><a href="#" class="btn btn-gray icon-btn-sm icon-btn-round"><i class="ei ei-google-plus"></i></a></li>
+                                    <li><a href="#" class="btn btn-gray icon-btn-sm icon-btn-round"><i class="ei ei-dribble"></i></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -126,17 +136,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div class="container">
-                    <span class="copyright"><img class="pdd-right-10" src="{{ asset('images/logo/logo-3.png')}}" alt="eastern"> Copyright © 2016 Eastern. <a href="../../wrapbootstrap.com/user/Nate93.html">Theme_Nate</a></span>    
-                    <ul class="social-btn pull-right mrg-top-5">
-                        <li><a href="#" class="btn btn-gray icon-btn-sm icon-btn-round"><i class="ei ei-facebook"></i></a></li>
-                        <li><a href="#" class="btn btn-gray icon-btn-sm icon-btn-round"><i class="ei ei-twitter"></i></a></li>
-                        <li><a href="#" class="btn btn-gray icon-btn-sm icon-btn-round"><i class="ei ei-google-plus"></i></a></li>
-                        <li><a href="#" class="btn btn-gray icon-btn-sm icon-btn-round"><i class="ei ei-dribble"></i></a></li>
-                    </ul>
-                </div>
-            </div>
+                
         </div>
     </section>
     <!-- Footer End -->
