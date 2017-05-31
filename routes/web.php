@@ -33,6 +33,7 @@ Route::get('/band', 'BandController@index')->name('band.main');
 
 // Merch Store page
 Route::get('/store', 'MerchStoreController@index')->name('store.main');
+Route::get('/store/product', 'MerchStoreController@showSingleProduct')->name('store.singleProduct');
 
 // Cart page
 Route::get('/cart', 'CartController@index')->name('cart.main');

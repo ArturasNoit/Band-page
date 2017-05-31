@@ -9,4 +9,8 @@ class MerchStoreController extends Controller
     public function index(){
     	return view('merchStore.main');
     }
+
+    public function showSingleProduct(){
+    	return view('merchStore.product');
+    }
 }

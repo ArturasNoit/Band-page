@@ -277,7 +277,7 @@
         <section class="section-1">
             <div class="container">
                 <div class="text-center mrg-btm-50">
-                    <h2>Best selling</h2>
+                    <h2>New Arrivals</h2>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
@@ -287,14 +287,14 @@
                             <img class="product-img img-responsive" src="assets/images/img-25.jpg" alt="">
                             <span class="price">$ 199.00</span>
                             <div class="add-to-cart">
-                                <a class="btn icon-btn-md btn-white icon-btn-round mrg-right-5 lh-1" href="javascript:void(0);"><i class="ei ei-show"></i></a>
-                                <a class="btn icon-btn-md btn-white icon-btn-round mrg-right-5 lh-1"><i class="ei ei-shopping-basket"></i></a>
+                                <a class="btn icon-btn-md btn-white hover-dribble icon-btn-round mrg-right-5 lh-1" href="javascript:void(0);"><i class="ei ei-heart"></i></a>
+                                <a class="btn icon-btn-md btn-theme icon-btn-round lh-1"><i class="ei ei-shopping-basket"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="shop-product">
-                            <a href="#" class="product-name">Best selling</a>
+                            <a href="#" class="product-name">Adidas Sneaker</a>
                             <p>Sport Wears</p>
                             <img class="product-img img-responsive" src="assets/images/img-27.jpg" alt="">
                             <span class="price">$ 199.00</span>

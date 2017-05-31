@@ -82,11 +82,11 @@
                                     <ul class="cart-menu dropdown-menu">
                                     <!-- One product to show -->
                                         <li class="cart-menu-item">
-                                            <a href="product-single.html" class="cart-menu-media">
+                                            <a href="{{route('store.singleProduct')}}" class="cart-menu-media">
                                                 <img class="img-responsive" src="{{asset('images/product/cart-item-1.jpg')}}" alt="">
                                             </a>
                                             <div class="product-details">
-                                                <a href="product-single.html" class="product-name">Cotton T- Shirt</a>
+                                                <a href="{{route('store.singleProduct')}}" class="product-name">Cotton T- Shirt</a>
                                                 <span class="price">$400.00</span>
                                                 <a class="remove" href="javascript:void(0);"><i class="ei ei-close"></i></a>
                                             </div>
