@@ -78,33 +78,24 @@
                             <ul class="nav navbar-nav">
                                 @if (Auth::check())
                                 <li class="nav-item dropdown">
-                                    <a class="dropdown-toggle" href="javascript:void(0);"><i class="ei ei-shopping-cart"></i> 5</a>
+                                    <a class="dropdown-toggle" href="javascript:void(0);"><i class="ei ei-shopping-cart"></i> {{$totalItems}}</a>
                                     <ul class="cart-menu dropdown-menu">
                                     <!-- One product to show -->
+                                        @foreach($cart as $item)
                                         <li class="cart-menu-item">
                                             <a href="#" class="cart-menu-media">
-                                                <img class="img-responsive" src="{{asset('images/product/cart-item-1.jpg')}}" alt="">
+                                                <img class="img-responsive" src="{{$item->product->img_url}}" alt="{{$item->product->title}}">
                                             </a>
                                             <div class="product-details">
-                                                <a href="#" class="product-name">Cotton T- Shirt</a>
-                                                <span class="price">$400.00</span>
-                                                <a class="remove" href="javascript:void(0);"><i class="ei ei-close"></i></a>
+                                                <a href="#" class="product-name">{{$item->product->title}}</a>
+                                                <span class="price">${{$item->product->price}}</span>
+                                                <a class="remove" href="{{route('cart.delete', $item->id)}}"><i class="ei ei-close"></i></a>
                                             </div>
                                         </li>
-                                        <!-- End of product in cart -->
-                                        <li class="cart-menu-item">
-                                            <a href="#" class="cart-menu-media">
-                                                <img class="img-responsive" src="assets/images/product/cart-item-2.jpg" alt="">
-                                            </a>
-                                            <div class="product-details">
-                                                <a href="#" class="product-name">Party Dress</a>
-                                                <span class="price">$400.00</span>
-                                                <a class="remove" href="javascript:void(0);"><i class="ei ei-close"></i></a>
-                                            </div>
-                                        </li>
+                                        @endforeach
                                         <li class="cart-menu-subtotal">
                                             <span>Sub Total</span>
-                                            <span class="amount">$800</span>
+                                            <span class="amount">$ {{$totalPrice}}</span>
                                         </li>
                                         <li class="cart-menu-bottom">
                                             <a class="btn check-out" href="{{route('cart.main')}}"><i class="ei ei-shopping-cart-dash pdd-horizon-5"></i> View Cart</a>

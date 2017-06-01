@@ -26,6 +26,12 @@ class Cart extends Model
   public function category()
   {
  
-  	return $this->product()->belongsTo('App\Category');
+  	return $this->product->belongsTo('App\Category');
+  }
+
+  public function manufacturer()
+  {
+ 
+    return $this->product->belongsTo('App\Manufacturer');
   }
 }

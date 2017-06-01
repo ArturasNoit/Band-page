@@ -40,8 +40,9 @@ Route::get('/store/product/{id}/form', 'MerchStoreController@getFormToUpdate')->
 Route::post('/store/product/{id}/update', 'MerchStoreController@updateProduct')->name('store.update');
 Route::get('/store/product/{id}/delete', 'MerchStoreController@deleteProduct')->name('store.delete');
 // Cart page
-Route::get('/cart', 'CartController@index')->name('cart.main');
+Route::get('/cart', 'CartController@showCart')->name('cart.main');
 Route::get('/cart/add/{id}', 'CartController@addItem')->name('cart.add');
+Route::get('/cart/delete/{id}', 'CartController@deleteCart')->name('cart.delete');
 
 //Admin panel page
 Route::get('/admin', 'AdminController@index')->name('admin.main');

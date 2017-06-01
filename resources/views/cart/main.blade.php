@@ -17,23 +17,25 @@
                         <div class="cart-table">
                             <table class="table">
                                 <tbody>
+                                @foreach($cart as $item)
                                     <tr>
                                         <td class="product-img">
-                                            <img class="img-responsive" src="assets/images/product/cart-item-1.jpg" alt="">
+                                            <img class="img-responsive" src="{{$item->product->img_url}}" alt="">
                                         </td>
                                         <td class="product-info">
-                                            <a href="#" class="product-name">Cotton T- Shirt</a>
-                                            <span class="display-block mrg-btm-5">Color: Gold</span>
-                                            <span class="display-block mrg-btm-5">Size: M</span>
+                                            <a href="#" class="product-name">{{$item->product->title}}</a>
+                                            <span class="display-block mrg-btm-5">Category: {{$item->category->title}}</span>
+                                            <span class="display-block mrg-btm-5">Manufacturer: {{$item->manufacturer->title}}</span>
                                         </td>
                                         <td>
-                                            <input type="number" value="1" min="1" class="quantity form-control">
+                                            <input type="number" value="{{$item->quantity}}" min="1" class="quantity form-control">
                                         </td>
-                                        <td>$400</td>
+                                        <td>${{$item->product->price * $item->quantity}}</td>
                                         <td>
-                                            <button class="qtyminus btn icon-btn-md btn-white icon-btn-round lh-1"><i class="ei ei-close"></i></button>
+                                            <a href="{{route('cart.delete', $item->id)}}" class="btn icon-btn-md btn-white icon-btn-round lh-1"><i class="ei ei-close"></i></a>
                                         </td>
                                     </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -42,7 +44,7 @@
                         <div class="card pdd-horizon-30 pdd-vertical-25 mrg-top-30">
                             <div class="border bottom">
                                 <h3 class="mrg-btm-30">Summary</h3>
-                                <p>Subtotal: <span class="pull-right">$1,600</span></p>
+                                <p>Subtotal: <span class="pull-right">{{$totalPrice}}</span></p>
                                 <p>Shipping: <span class="pull-right">$30</span></p>
                                 <p class="mrg-top-20">Discount: <span class="pull-right">$300</span></p>
                             </div>
