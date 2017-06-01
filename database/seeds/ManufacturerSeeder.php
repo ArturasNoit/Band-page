@@ -1,10 +1,11 @@
 <?php
-
+use App\Manufacturer;
+use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
 class ManufacturerSeeder extends Seeder
 {
-    protected $product;
+    protected $manufacturer;
     protected $faker;
 
     public function __construct(Manufacturer $manufacturer, Faker $faker) {

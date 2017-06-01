@@ -280,78 +280,20 @@
                     <h2>Best selling</h2>
                 </div>
                 <div class="row">
+                @foreach($products as $product)
                     <div class="col-md-4">
                         <div class="shop-product">
-                            <a href="#" class="product-name">Stylish Backpack</a>
-                            <p>Bag Wears</p>
-                            <img class="product-img img-responsive" src="assets/images/img-25.jpg" alt="">
-                            <span class="price">$ 199.00</span>
+                            <a href="{{route('store.singleProduct', $product->id)}}" class="product-name">{{$product->title}}</a>
+                            <p><b>Manufacturer:</b>{{$product->category->title}}</p>
+                            <a href="{{route('store.singleProduct', $product->id)}}"><img class="product-img img-responsive" src="{{$product->img_url}}" alt=""></a>
+                            <span class="price">$ {{$product->price}}</span>
                             <div class="add-to-cart">
-                                <a class="btn icon-btn-md btn-white icon-btn-round mrg-right-5 lh-1" href="javascript:void(0);"><i class="ei ei-show"></i></a>
+                 <!--                <a class="btn icon-btn-md btn-white icon-btn-round mrg-right-5 lh-1" href="{{route('store.singleProduct', $product->id)}}"><i class="ei ei-show"></i></a> -->
                                 <a class="btn icon-btn-md btn-white icon-btn-round mrg-right-5 lh-1"><i class="ei ei-shopping-basket"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="shop-product">
-                            <a href="#" class="product-name">Best selling</a>
-                            <p>Sport Wears</p>
-                            <img class="product-img img-responsive" src="assets/images/img-27.jpg" alt="">
-                            <span class="price">$ 199.00</span>
-                            <div class="add-to-cart">
-                                <a class="btn icon-btn-md btn-white hover-dribble icon-btn-round mrg-right-5 lh-1" href="javascript:void(0);"><i class="ei ei-heart"></i></a>
-                                <a class="btn icon-btn-md btn-theme icon-btn-round lh-1"><i class="ei ei-shopping-basket"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="shop-product">
-                            <a href="#" class="product-name">Yellow Backpack</a>
-                            <p>Bag Wears</p>
-                            <img class="product-img img-responsive" src="assets/images/img-26.jpg" alt="">
-                            <span class="price">$ 199.00</span>
-                            <div class="add-to-cart">
-                                <a class="btn icon-btn-md btn-white hover-dribble icon-btn-round mrg-right-5 lh-1" href="javascript:void(0);"><i class="ei ei-heart"></i></a>
-                                <a class="btn icon-btn-md btn-theme icon-btn-round lh-1"><i class="ei ei-shopping-basket"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="shop-product">
-                            <a href="#" class="product-name">Yellow Backpack</a>
-                            <p>Bag Wears</p>
-                            <img class="product-img img-responsive" src="assets/images/img-26.jpg" alt="">
-                            <span class="price">$ 199.00</span>
-                            <div class="add-to-cart">
-                                <a class="btn icon-btn-md btn-white hover-dribble icon-btn-round mrg-right-5 lh-1" href="javascript:void(0);"><i class="ei ei-heart"></i></a>
-                                <a class="btn icon-btn-md btn-theme icon-btn-round lh-1"><i class="ei ei-shopping-basket"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="shop-product">
-                            <a href="#" class="product-name">Yellow Backpack</a>
-                            <p>Bag Wears</p>
-                            <img class="product-img img-responsive" src="assets/images/img-26.jpg" alt="">
-                            <span class="price">$ 199.00</span>
-                            <div class="add-to-cart">
-                                <a class="btn icon-btn-md btn-white hover-dribble icon-btn-round mrg-right-5 lh-1" href="javascript:void(0);"><i class="ei ei-heart"></i></a>
-                                <a class="btn icon-btn-md btn-theme icon-btn-round lh-1"><i class="ei ei-shopping-basket"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="shop-product">
-                            <a href="#" class="product-name">Yellow Backpack</a>
-                            <p>Bag Wears</p>
-                            <img class="product-img img-responsive" src="assets/images/img-26.jpg" alt="">
-                            <span class="price">$ 199.00</span>
-                            <div class="add-to-cart">
-                                <a class="btn icon-btn-md btn-white hover-dribble icon-btn-round mrg-right-5 lh-1" href="javascript:void(0);"><i class="ei ei-heart"></i></a>
-                                <a class="btn icon-btn-md btn-theme icon-btn-round lh-1"><i class="ei ei-shopping-basket"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                @endforeach
                 </div>
             </div>
         </section>

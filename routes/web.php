@@ -33,15 +33,18 @@ Route::get('/band', 'BandController@index')->name('band.main');
 
 // Merch Store page
 Route::get('/store', 'MerchStoreController@index')->name('store.main');
-Route::get('/store/product', 'MerchStoreController@showSingleProduct')->name('store.singleProduct');
-
+Route::post('/store/create', 'MerchStoreController@create')->name('store.create');
+Route::get('/store/product/{id}', 'MerchStoreController@showSingleProduct')->name('store.singleProduct');
+Route::get('/store/product/{id}/form', 'MerchStoreController@getFormToUpdate')->name('store.form');
+Route::get('/store/product/{id}/update', 'MerchStoreController@updateProduct')->name('store.update');
+Route::get('/store/product/{id}/delete', 'MerchStoreController@deleteProduct')->name('store.delete');
 // Cart page
 Route::get('/cart', 'CartController@index')->name('cart.main');
 
 //Admin panel page
 Route::get('/admin', 'AdminController@index')->name('admin.main');
 
-//Admin panel page
+// User page
 Route::get('/profile', 'UserController@index')->name('user.main');
 
 // Dev test blade

@@ -16,4 +16,14 @@ class Product extends Model
 	    'manufacturer_id',
 	    'img_url'
   ];
+
+  public function category()
+  {
+  	return $this->belongsTo('App\Category');
+  }
+
+   public function manufacturer()
+  {
+  	return $this->belongsTo('App\Manufacturer');
+  }
 }

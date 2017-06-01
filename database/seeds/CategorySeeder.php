@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
 {
-	protected $product;
+	protected $category;
     protected $faker;
 
     public function __construct(Category $category, Faker $faker) {
