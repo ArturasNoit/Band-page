@@ -35,34 +35,24 @@ class MerchStoreController extends Controller
 
       return redirect()->route('store.main');
     }
-
-    public function updateProduct(Request $request1, $id, Messages $request)
+    // Updates single product
+    public function updateProduct(Request $request, $id)
     {
       Product::create($request->all());
       $product = Product::find($id);
       $product->update($request->all());
-      $request->session()->flash('success', $request->title . ' was successfully updated!');
+      // , Messages $request ---- kintamasis į funkciją validacijai
+      // $request->session()->flash('success', $request->title . ' was successfully updated!');
       return redirect()->route('store.singleProduct', $id);
     }
-
-
-
-
-
-    // public function emptyForm(){
-    // 	return view('merchStore.form');
-    // }
-
-
-
-
-
-
-
-    public function update(Request $request){
+    // open form to create form
+    public function create(){
+    	return view('merchStore.form');
+    }
+    // create new product
+    public function createNewProduct(Request $request){
     	Product::create($request->all());
-
     	$request->session()->flash('success', $request->title . ' was successfully added!');
-    	return redirect()->route('createProduct');
+    	return redirect()->route('store.main');
     }
 }

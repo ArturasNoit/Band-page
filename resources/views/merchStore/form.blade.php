@@ -16,11 +16,11 @@
   <p class="lead main text-center"></p>
     <div class="col-md-8 col-md-push-2 text-center">
       @if (isset($product))
-        <form class="form-horizontal" action="" method="post">
+        <form class="form-horizontal" action="{{route('store.update', $product->id)}}" method="post">
 
       @else
         <div id="formMessage"></div>
-        <form id="addProductForm" class="form-horizontal" action="" method="post">
+        <form id="addProductForm" class="form-horizontal" action="{{route('store.add')}}" method="post">
       @endif
         <div class="form-group">
           <label class="control-label" for="title">Title:</label>

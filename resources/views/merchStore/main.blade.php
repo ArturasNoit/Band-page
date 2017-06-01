@@ -289,7 +289,7 @@
                             <span class="price">$ {{$product->price}}</span>
                             <div class="add-to-cart">
                  <!--                <a class="btn icon-btn-md btn-white icon-btn-round mrg-right-5 lh-1" href="{{route('store.singleProduct', $product->id)}}"><i class="ei ei-show"></i></a> -->
-                                <a class="btn icon-btn-md btn-white icon-btn-round mrg-right-5 lh-1"><i class="ei ei-shopping-basket"></i></a>
+                                <a href="{{route('cart.add', $product->id)}}" class="btn icon-btn-md btn-white icon-btn-round mrg-right-5 lh-1"><i class="ei ei-shopping-basket"></i></a>
                             </div>
                         </div>
                     </div>
