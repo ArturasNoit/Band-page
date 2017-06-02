@@ -7,7 +7,7 @@
                     <h2>Cart</h2>
                 </div>
             </div>
-        </section
+        </section>
 
 <!-- Cart Start -->
         <section class="section-1">
@@ -23,7 +23,7 @@
                                             <img class="img-responsive" src="{{$item->product->img_url}}" alt="">
                                         </td>
                                         <td class="product-info">
-                                            <a href="#" class="product-name">{{$item->product->title}}</a>
+                                            <a href="{{route('store.singleProduct', $item->product->id)}}" class="product-name">{{$item->product->title}}</a>
                                             <span class="display-block mrg-btm-5">Category: {{$item->category->title}}</span>
                                             <span class="display-block mrg-btm-5">Manufacturer: {{$item->manufacturer->title}}</span>
                                         </td>
@@ -44,13 +44,13 @@
                         <div class="card pdd-horizon-30 pdd-vertical-25 mrg-top-30">
                             <div class="border bottom">
                                 <h3 class="mrg-btm-30">Summary</h3>
-                                <p>Subtotal: <span class="pull-right">{{$totalPrice}}</span></p>
-                                <p>Shipping: <span class="pull-right">$30</span></p>
-                                <p class="mrg-top-20">Discount: <span class="pull-right">$300</span></p>
+                                <p>Subtotal: <span class="pull-right"> $ {{$totalPrice}}</span></p>
+                                <p>Shipping: <span class="pull-right">$ 30</span></p>
+                                <p class="mrg-top-20">Discount: <span class="pull-right">$ 0</span></p>
                             </div>
-                            <p class="mrg-top-20">Grand Total: <span class="pull-right text-dark font-size-18"><b>$300</b></span></p>
+                            <p class="mrg-top-20">Grand Total: <span class="pull-right text-dark font-size-18"><b> $ {{$totalPrice + 30}}</b></span></p>
                             <div class="text-center mrg-top-30">
-                                <a class="btn btn-dark btn-block" id="testas" href="#">Checkout</a>
+                                <a class="btn btn-dark btn-block" id="testas" href="javascript:void(0);">Checkout</a>
                             </div>
                         </div>
                     </div>

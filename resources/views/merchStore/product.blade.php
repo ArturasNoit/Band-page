@@ -12,6 +12,13 @@
 
   <section class="section-3">
             <div class="container">
+             @if(Session::has('success'))
+                                    <div class="alert alert-success alert-dismissable col-md-8 col-md-push-2">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                        <em> {!! session('success') !!}</em>
+                                    </div>
+                                @endif
                 <div class="row">
                     <div class="">
                         <div class="row">
@@ -19,19 +26,7 @@
                                 <div class="swiper-container gallery-screen no-pdd">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img class="img-responsive" src="{{asset('images/img-36.jpg')}}" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img class="img-responsive" src="{{asset('images/img-40.jpg')}}" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img class="img-responsive" src="{{asset('images/img-37.jpg')}}" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img class="img-responsive" src="{{asset('images/img-38.jpg')}}" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img class="img-responsive" src="{{asset('images/img-39.jpg')}}" alt="">
+                                            <img class="img-responsive" src="{{$product->img_url}}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -39,18 +34,6 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <img class="img-responsive" src="{{$product->img_url}}" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img class="img-responsive" src="{{asset('images/img-40.jpg')}}" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img class="img-responsive" src="{{asset('images/img-37.jpg')}}" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img class="img-responsive" src="{{asset('images/img-38.jpg')}}" alt="">
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <img class="img-responsive" src="{{asset('images/img-39.jpg')}}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -62,6 +45,7 @@
                                     <p><b>Category:</b> {{$product->category->title}}</p>
                                     <p><b>Manufacturer:</b> {{$product->manufacturer->title}}</p>
                                     <p><b>Country:</b> {{$product->manufacturer->country}}</p>
+                                    @if (Auth::check())
                                     <div class="quantity-selector mrg-right-30">
                                         <button class="qtyminus btn icon-btn-md btn-white icon-btn-round lh-1"><i class="ei ei-minus"></i></button>
                                         <input type="text" value="1" class="quantity form-control">
@@ -69,10 +53,13 @@
                                     </div>
                                     <span class="font-size-20"><b>$ {{$product->price}}</b></span>
                                     <div class="mrg-top-50">
-                                        <a class="btn btn-md btn-dark">Add to Cart</a>
+                                        <a href="{{route('cart.add', $product->id)}}" class="btn btn-md btn-dark">Add to Cart</a>
+                                    @if (Auth::user()->isAdmin())
                                         <a href="{{route('store.form', $product->id)}}" class="btn btn-md btn-warning">Update</a>
                                         <a href="{{route('store.delete', $product->id)}}" class="btn btn-md btn-warning">Delete</a>
+                                    @endif
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

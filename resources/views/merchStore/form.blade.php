@@ -11,6 +11,15 @@
         <section class="section-1">
 			<div class="container">
 				<div class="row">
+  @if (count($errors) > 0)
+    <div class="alert text-center">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
 
   <h2 class="section-title text-center">Add product</h2>
   <p class="lead main text-center"></p>

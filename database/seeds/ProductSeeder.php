@@ -33,7 +33,7 @@ class ProductSeeder extends Seeder
         'price' => $faker->numberBetween(10, 100),
         'manufacturer_id' => $faker->numberBetween(1, 10),
         'category_id' => $category_ids->random(),
-        'img_url' => $faker->imageUrl(800, 600, 'food')
+        'img_url' => $faker->imageUrl(800, 600, 'technics')
        ]);
       }
     }

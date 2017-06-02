@@ -68,15 +68,16 @@ class CartController extends Controller
       $cartItem->user_id = Auth::user()->id;
       $cartItem->quantity = 1;
      }
-      $cartItem->save();
+
+     $cartItem->save();
 
 
 
 
-  $cart =  Cart:: where('user_id', Auth::user()->id)->get();
-  //$totalItems = count($cart);
+    $cart =  Cart:: where('user_id', Auth::user()->id)->get();
+    //$totalItems = count($cart);
 
-  return response()->json(["cart" => $cart, "cartItem" => $cartItem]);
+    return response()->json(["cart" => $cart, "cartItem" => $cartItem]);
 
   }
 }

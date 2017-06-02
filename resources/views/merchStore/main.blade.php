@@ -38,7 +38,7 @@
                                 data-start="1200" 
                                 data-responsive_offset="on"
                                 style="z-index: 8; letter-spacing: 1px;">
-                                <span class="font-secondary text-white ls-0-5 font-weight-light">Red Beat Solo 2</span>
+                                <span class="font-secondary text-white ls-0-5 font-weight-light">{{$products[0]->title}}</span>
                             </div>    
                             <div class="tp-caption"
                                 id="slide-1-layer-3"
@@ -55,7 +55,7 @@
                                 data-responsive_offset="on"
                                 data-start="1500" 
                                 style="z-index: 8;">
-                                <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p> 
+                                <p class="text-white">{{str_limit($products[0]->description, 150)}}</p> 
                             </div>
                             <div class="tp-caption"
                                 id="slide-1-layer-4"
@@ -68,7 +68,7 @@
                                 data-transform_out="x:-50px;opacity:0;s:1000;e:Power2.easeOut;"
                                 data-start="1800"
                                 data-responsive_offset="on">
-                                <span class="text-white font-secondary">$ 89.99</span>
+                                <span class="text-white font-secondary">$ {{$products[0]->price}}</span>
                             </div>
                             <div class="tp-caption"
                                 id="slide-1-layer-5"
@@ -80,7 +80,9 @@
                                 data-transform_out="x:-50px;opacity:0;s:1000;e:Power2.easeOut;"
                                 data-start="2000"
                                 data-responsive_offset="on">
-                                <button class="btn btn-md btn-dark border-radius-4">Add to Cart</button>
+                                @if(Auth::check())
+                                <a href="{{route('cart.add', $products[0]->id)}}" class="btn btn-md btn-dark border-radius-4">Add to Cart</a>
+                                @endif
                             </div>
                         </li> 
                           
@@ -116,7 +118,7 @@
                                 data-start="1200" 
                                 data-responsive_offset="on"
                                 style="z-index: 8; letter-spacing: 1px;">
-                                <span class="font-secondary text-white ls-0-5 font-weight-light">Stylish Backpack</span>
+                                <span class="font-secondary text-white ls-0-5 font-weight-light">{{$products[1]->title}}</span>
                             </div>    
                             <div class="tp-caption"
                                 id="slide-2-layer-3"
@@ -133,7 +135,7 @@
                                 data-responsive_offset="on"
                                 data-start="1500" 
                                 style="z-index: 8;">
-                                <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p> 
+                                <p class="text-white">{{str_limit($products[1]->description, 150)}}</p> 
                             </div>
                             <div class="tp-caption"
                                 id="slide-2-layer-4"
@@ -146,7 +148,7 @@
                                 data-transform_out="x:-50px;opacity:0;s:1000;e:Power2.easeOut;"
                                 data-start="1800"
                                 data-responsive_offset="on">
-                                <span class="text-white font-secondary">$ 89.99</span>
+                                <span class="text-white font-secondary">$ {{$products[1]->price}}</span>
                             </div>
                             <div class="tp-caption"
                                 id="slide-2-layer-5"
@@ -158,7 +160,9 @@
                                 data-transform_out="x:-50px;opacity:0;s:1000;e:Power2.easeOut;"
                                 data-start="2000"
                                 data-responsive_offset="on">
-                                <button class="btn btn-md btn-dark border-radius-4">Add to Cart</button>
+                                @if(Auth::check())
+                                <a href="{{route('cart.add', $products[1]->id)}}" class="btn btn-md btn-dark border-radius-4">Add to Cart</a>
+                                @endif
                             </div>
                         </li> 
                         
@@ -224,7 +228,7 @@
                                 data-start="2500" 
                                 data-responsive_offset="on"
                                 style="z-index: 8; letter-spacing: 1px;">
-                                <span class="font-secondary text-white ls-0-5 font-weight-light">Apple Watch</span>
+                                <span class="font-secondary text-white ls-0-5 font-weight-light">{{$products[3]->title}}</span>
                             </div>    
                             <div class="tp-caption"
                                 id="slide-3-layer-5"
@@ -241,7 +245,7 @@
                                 data-responsive_offset="on"
                                 data-start="2800" 
                                 style="z-index: 8;">
-                                <p class="text-white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p> 
+                                <p class="text-white">{{str_limit($products[3]->description, 150)}}</p> 
                             </div>
                             <div class="tp-caption"
                                 id="slide-3-layer-6"
@@ -254,7 +258,7 @@
                                 data-transform_out="x:-50px;opacity:0;s:1000;e:Power2.easeOut;"
                                 data-start="3100"
                                 data-responsive_offset="on">
-                                <span class="text-white font-secondary">$ 348.99</span>
+                                <span class="text-white font-secondary">$ {{$products[3]->price}}</span>
                             </div>
                             <div class="tp-caption"
                                 id="slide-3-layer-7"
@@ -266,7 +270,9 @@
                                 data-transform_out="x:-50px;opacity:0;s:1000;e:Power2.easeOut;"
                                 data-start="3400"
                                 data-responsive_offset="on">
-                                <button class="btn btn-md btn-dark border-radius-4">Add to Cart</button>
+                                @if(Auth::check())
+                                <a href="{{route('cart.add', $products[3]->id)}}" class="btn btn-md btn-dark border-radius-4">Add to Cart</a>
+                                @endif
                             </div>    
                         </li>
                     </ul>
@@ -275,6 +281,20 @@
         </section>
         <!-- Hero End -->
         <section class="section-1">
+            @if(Session::has('successDelete'))
+                <div class="alert alert-warning alert-dismissable col-md-8 col-md-push-2">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <em> {!! session('successDelete') !!}</em>
+                </div>
+            @endif
+            @if(Session::has('success'))
+                <div class="alert alert-success alert-dismissable col-md-8 col-md-push-2">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <em> {!! session('success') !!}</em>
+                </div>
+            @endif
             <div class="container">
                 <div class="text-center mrg-btm-50">
                     <h2>Best selling</h2>
@@ -283,13 +303,15 @@
                 @foreach($products as $product)
                     <div class="col-md-4">
                         <div class="shop-product">
-                            <a href="{{route('store.singleProduct', $product->id)}}" class="product-name">{{$product->title}}</a>
-                            <p><b>Manufacturer:</b>{{$product->category->title}}</p>
+                            <a href="{{route('store.singleProduct', $product->id)}}" class="product-name">{{str_limit($product->title, 15)}}</a>
+                            <p><b>Manufacturer:</b>{{str_limit($product->category->title, 10)}}</p>
                             <a href="{{route('store.singleProduct', $product->id)}}"><img class="product-img img-responsive" src="{{$product->img_url}}" alt=""></a>
                             <span class="price">$ {{$product->price}}</span>
                             <div class="add-to-cart">
                  <!--                <a class="btn icon-btn-md btn-white icon-btn-round mrg-right-5 lh-1" href="{{route('store.singleProduct', $product->id)}}"><i class="ei ei-show"></i></a> -->
+                                @if(Auth::check())
                                 <a href="{{route('cart.add', $product->id)}}" data-productid="{{ $product->id }}" class="add-to-cart btn icon-btn-md btn-white icon-btn-round mrg-right-5 lh-1"><i class="ei ei-shopping-basket"></i></a>
+                                @endif
                             </div>
                         </div>
                     </div>

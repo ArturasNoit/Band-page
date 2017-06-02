@@ -83,11 +83,11 @@
                                     <!-- One product to show -->
                                         @foreach($cart as $item)
                                         <li class="cart-menu-item">
-                                            <a href="#" class="cart-menu-media">
+                                            <a href="{{route('store.singleProduct', $item->product->id)}}" class="cart-menu-media">
                                                 <img class="img-responsive" src="{{$item->product->img_url}}" alt="{{$item->product->title}}">
                                             </a>
                                             <div class="product-details">
-                                                <a href="#" class="product-name">{{$item->product->title}}</a>
+                                                <a href="{{route('store.singleProduct', $item->product->id)}}" class="product-name">{{$item->product->title}}</a>
                                                 <span class="price">${{$item->product->price}}</span>
                                                 <a class="remove" href="{{route('cart.delete', $item->id)}}"><i class="ei ei-close"></i></a>
                                             </div>
@@ -105,7 +105,9 @@
                                 <li class="nav-item dropdown">
                                     <a class="dropdown-toggle" href="javascript:void(0);">{{ Auth::user()->name }}<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
+                                        @if(Auth::user()->isAdmin())
                                         <li><a href="{{route('admin.main')}}">Admin panel</a>
+                                        @endif
                                         <li><a href="{{route('user.main')}}">My profile</a>
                                         <li>
                                             <a href="{{ route('logout') }}"

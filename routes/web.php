@@ -33,24 +33,24 @@ Route::get('/band', 'BandController@index')->name('band.main');
 
 // Merch Store page
 Route::get('/store', 'MerchStoreController@index')->name('store.main');
-Route::get('/store/create', 'MerchStoreController@create')->name('store.create');
-Route::post('/store/create/add', 'MerchStoreController@createNewProduct')->name('store.add');
+Route::get('/store/create', 'MerchStoreController@create')->middleware('isAdmin')->name('store.create');
+Route::post('/store/create/add', 'MerchStoreController@createNewProduct')->middleware('isAdmin')->name('store.add');
 Route::get('/store/product/{id}', 'MerchStoreController@showSingleProduct')->name('store.singleProduct');
-Route::get('/store/product/{id}/form', 'MerchStoreController@getFormToUpdate')->name('store.form');
-Route::post('/store/product/{id}/update', 'MerchStoreController@updateProduct')->name('store.update');
-Route::get('/store/product/{id}/delete', 'MerchStoreController@deleteProduct')->name('store.delete');
+Route::get('/store/product/{id}/form', 'MerchStoreController@getFormToUpdate')->middleware('isAdmin')->name('store.form');
+Route::post('/store/product/{id}/update', 'MerchStoreController@updateProduct')->middleware('isAdmin')->name('store.update');
+Route::get('/store/product/{id}/delete', 'MerchStoreController@deleteProduct')->middleware('isAdmin')->name('store.delete');
 // Cart page
-Route::get('/cart', 'CartController@showCart')->name('cart.main');
-Route::get('/cart/add/{id}', 'CartController@addItem')->name('cart.add');
-Route::get('/cart/delete/{id}', 'CartController@deleteCart')->name('cart.delete');
-Route::post('/cart/update/{id}', 'CartController@cartUpdate')->name('cart.update');
+Route::get('/cart', 'CartController@showCart')->middleware('auth')->name('cart.main');
+Route::get('/cart/add/{id}', 'CartController@addItem')->middleware('auth')->name('cart.add');
+Route::get('/cart/delete/{id}', 'CartController@deleteCart')->middleware('auth')->name('cart.delete');
+Route::post('/cart/update/{id}', 'CartController@cartUpdate')->middleware('auth')->name('cart.update');
 Route::post('/cartAjax', 'CartController@addProductAjax')->name('cart.ajax');
 
 //Admin panel page
 Route::get('/admin', 'AdminController@index')->middleware('isAdmin')->name('admin.main');
 
 // User page
-Route::get('/profile', 'UserController@index')->name('user.main');
+Route::get('/profile', 'UserController@index')->middleware('auth')->name('user.main');
 
 // Dev test blade
 // Route::get('/test', 'Demo@test')->name('test');

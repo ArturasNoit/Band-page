@@ -10,12 +10,13 @@ $('.add-to-cart').on('click', function(event){
     },
         success: function(data){
             $('#cart-bar').html(data.cart.length);
+            
 
-            console.log(data);
+            // console.log(data);
         },
         error: function(data){
-            console.log('SUCKA, KO NEVEIKI????');
-            console.log(data);
+            console.log('Niekas neveikia');
+            // console.log(data);
         }
     })
 })

@@ -119,8 +119,8 @@
                                     <img class="img-responsive" src="{{ asset('images/news-1.jpg')}}" alt="">
                                 </div>
                                 <div class="news-info">
-                                    <a href="#" class="news-tittle">Feel the Inovation</a>
-                                    <span class="news-meta">By <a href="#" class="author">Hendry Chew</a> 3 April</span>
+                                    <a href="#" class="news-tittle">Random text</a>
+                                    <span class="news-meta">By <a href="#" class="author">Algis</a> 3 April</span>
                                 </div>
                             </div>
                             <div class="news-item">
@@ -128,8 +128,8 @@
                                     <img class="img-responsive" src="{{ asset('images/news-2.jpg')}}" alt="">
                                 </div>
                                 <div class="news-info">
-                                    <a href="#" class="news-tittle">Feel the Inovation</a>
-                                    <span class="news-meta">By <a href="#" class="author">Hendry Chew</a> 3 April</span>
+                                    <a href="#" class="news-tittle">Random text</a>
+                                    <span class="news-meta">By <a href="#" class="author">Lorem Ipsum Guy</a> 3 April</span>
                                 </div>
                             </div>
                         </div>

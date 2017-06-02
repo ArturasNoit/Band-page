@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Http\Requests\Product_validation;
 
 class MerchStoreController extends Controller
 {
@@ -36,13 +37,12 @@ class MerchStoreController extends Controller
       return redirect()->route('store.main');
     }
     // Updates single product
-    public function updateProduct(Request $request, $id)
+    public function updateProduct(Request $request, $id, Product_validation $request2)
     {
-      Product::create($request->all());
+      // Product::create($request->all());
       $product = Product::find($id);
       $product->update($request->all());
-      // , Messages $request ---- kintamasis į funkciją validacijai
-      // $request->session()->flash('success', $request->title . ' was successfully updated!');
+      $request->session()->flash('success', $request->title . ' was successfully updated!');
       return redirect()->route('store.singleProduct', $id);
     }
     // open form to create form
@@ -50,7 +50,7 @@ class MerchStoreController extends Controller
     	return view('merchStore.form');
     }
     // create new product
-    public function createNewProduct(Request $request){
+    public function createNewProduct(Request $request, Product_validation $request2){
     	Product::create($request->all());
     	$request->session()->flash('success', $request->title . ' was successfully added!');
     	return redirect()->route('store.main');
