@@ -78,7 +78,7 @@
                             <ul class="nav navbar-nav">
                                 @if (Auth::check())
                                 <li class="nav-item dropdown">
-                                    <a class="dropdown-toggle" href="javascript:void(0);"><i class="ei ei-shopping-cart"></i> {{$totalItems}}</a>
+                                    <a class="dropdown-toggle" href="javascript:void(0);"><i class="ei ei-shopping-cart"></i><span id="cart-bar">{{$totalItems}}</span></a>
                                     <ul class="cart-menu dropdown-menu">
                                     <!-- One product to show -->
                                         @foreach($cart as $item)

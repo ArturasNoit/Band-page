@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('test');
-});
+// Route::get('/', function () {
+//     return view('test');
+// });
 
 Auth::routes();
 // Home page
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 // News page
 Route::get('/news', 'NewsController@index')->name('news.main');
@@ -43,15 +43,17 @@ Route::get('/store/product/{id}/delete', 'MerchStoreController@deleteProduct')->
 Route::get('/cart', 'CartController@showCart')->name('cart.main');
 Route::get('/cart/add/{id}', 'CartController@addItem')->name('cart.add');
 Route::get('/cart/delete/{id}', 'CartController@deleteCart')->name('cart.delete');
+Route::post('/cart/update/{id}', 'CartController@cartUpdate')->name('cart.update');
+Route::post('/cartAjax', 'CartController@addProductAjax')->name('cart.ajax');
 
 //Admin panel page
-Route::get('/admin', 'AdminController@index')->name('admin.main');
+Route::get('/admin', 'AdminController@index')->middleware('isAdmin')->name('admin.main');
 
 // User page
 Route::get('/profile', 'UserController@index')->name('user.main');
 
 // Dev test blade
-Route::get('/test', 'Demo@test')->name('test');
+// Route::get('/test', 'Demo@test')->name('test');
 
 // Social login
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider')->name("fb.auth");

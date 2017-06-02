@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
       foreach (range(1, 10) as $x) {
         $this->product->create([
         'title' => $faker->name(),
-        'description' => $faker->sentence(200),
+        'description' => $faker->sentence(100),
         'quantity' => $faker->numberBetween(1, 15),
         'price' => $faker->numberBetween(10, 100),
         'manufacturer_id' => $faker->numberBetween(1, 10),

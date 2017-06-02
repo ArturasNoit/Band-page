@@ -50,7 +50,7 @@
                             </div>
                             <p class="mrg-top-20">Grand Total: <span class="pull-right text-dark font-size-18"><b>$300</b></span></p>
                             <div class="text-center mrg-top-30">
-                                <a class="btn btn-dark btn-block" href="checkout.html">Checkout</a>
+                                <a class="btn btn-dark btn-block" id="testas" href="#">Checkout</a>
                             </div>
                         </div>
                     </div>
